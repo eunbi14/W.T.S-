@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<title>Four Boxes Slideshow | Demo 1</title>
+		<title>Show Preview Data</title>
 		<meta name="description" content="Four Boxes Slideshow: Recreating the background image slideshow seen on Atelier Serge Thoroval's website" />
 		<meta name="keywords" content="background slideshow, boxes, background image, four panels, css, tutorial" />
 		<meta name="author" content="Codrops" />
@@ -29,22 +29,34 @@
 			</div>
 			
 				<div class="panel"><img src="../static/img/경복궁.jpeg" alt="Image 1" style="opacity:0.1" width=100% height=100%/>
+				
 				<header class="codrops-header2">
+				
 			<div class="wrapper">
-  <main>
+			 <div style="display:block;">날짜로 검색 <input type="text" maxlength="6" 
+			 placeholder=" YYYYMM(ex.201908)" style="border-left:0px; border-right:0px; border-top:0px; border-bottom:1px solid #A8B2B9; color:#A8B2B9; background-color:rgba(0,0,0,0);">
+				<input type="button"></div>
     <div class="toolbar">
       <div class="toggle">
        <label onclick="prevMonth()"><h1><</h1></label>
       </div>
-         <div id="m"></div>
+         <div id="m">
+</div>
       <script>
+      /* function select(){
+    	  var popUrl = "select.html";
+    	  var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";
+    	  window.open(popUrl, "aa", popOption);
+      } */
       var today = new Date();
       var yy = today.getFullYear();
       var mm = today.getMonth()+1;
       yy = yy + "년";
       mm = mm + "월";
-      document.getElementById("m").innerHTML = "<font size=4>"+yy+"</font><br/><br/>";
+      document.getElementById("m").innerHTML = "<br/><font size=4>"+yy+"</font><br/><br/>";
+      
       document.getElementById("m").style.fontSize = '2em';
+      //document.getElementByClass("menu1").append(yy);
       document.getElementById("m").append(mm);
       </script>
   
@@ -261,7 +273,7 @@
         }
         </script>
     </div>
-  </main>
+
  
 </div>
 			
