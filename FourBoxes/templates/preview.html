@@ -232,6 +232,7 @@
         }
         
         function update(dd, date, mo){
+        	//document.write(mm, "..." , today2.getMonth()+1);
         	for (i=dd;date<=mo;i++){
             	switch(yy){
             	case 2011:
@@ -268,8 +269,32 @@
             		break;
             	case 2019:
             		var test2019 = {{test2019}};
-            		document.getElementById(i).innerHTML = "<br/><br/>"+Math.round(test2019[mm-1][i-dd])+"명";
-            		break;
+            		if(mm>today2.getMonth()+1) {
+            			document.getElementById(i).innerHTML = "<br/><br/>";
+            			break;
+            		}
+            		/* 이부분이 8월에서 오늘날짜 이후로만 0명 지우는 코드인데 이걸 넣으면 자꾸 이전 달로 넘어가는게 이상해짐
+            		else if(mm=today2.getMonth()+1){
+            			document.getElementById(i).innerHTML = "<br/><br/>"+Math.round(test2019[mm-1][i-dd])+"명";
+            			break;
+            			//document.getElementById("mm: ",mm);
+            			/* if(date>=today2.getDate()){
+            				document.getElementById(i).innerHTML = "<br/><br/>";
+                			break;
+            			} 
+            			else {
+            				document.getElementById(i).innerHTML = "<br/><br/>"+Math.round(test2019[mm-1][i-dd])+"명";
+                			break;
+            			} 
+            			//document.write(date, "...", today2.getDate());
+            		} */
+            		else {
+            			document.getElementById(i).innerHTML = "<br/><br/>"+Math.round(test2019[mm-1][i-dd])+"명";
+            			break;
+            		}
+            		
+            		
+            		
             	default:
             		document.getElementById(i).innerHTML = "<br/><br/>";
             	}
@@ -282,16 +307,14 @@
             }
         }
         
-        today = new Date();
-        yy = today.getFullYear();
-      	mm = today.getMonth() + 1;
-      	
-        
-        
+        today2 = new Date();
+        yy = today2.getFullYear();
+      	mm = today2.getMonth() + 1;
+   
+    
         var mo = monthdate(yy, mm);
         today = new Date(yy, mm-1);
         var dd = today.getDay();
-
      
         	if (dd==0) dd=7;
             var date = 1;
@@ -300,7 +323,6 @@
             for (i=1;i<dd;i++){
             	document.getElementById(i).innerHTML = "";
             }
-
             update(dd, date, mo);	
  
    
@@ -315,7 +337,6 @@
             document.getElementById("m").append(mm+"월");
         	today = new Date(yy, mm-1);
         	var mo = monthdate(yy, mm);
-
         var dd = today.getDay();
 	
         
@@ -344,16 +365,14 @@
             
             var mo = monthdate(yy, mm);
         	today = new Date(yy, mm-1);
-        	
-
         var dd = today.getDay();
-
-        
+       // var today2 = new Date();
     	if (dd==0) dd=7;
         var date = 1;
         for (i=1;i<dd;i++){
         	document.getElementById(i).innerHTML = "";
         }
+        
         update(dd, date, mo);
         for (;i<=42;i++){
         	document.getElementById(i).innerHTML = "";
