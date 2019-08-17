@@ -7,13 +7,19 @@ Created on Sat Aug  3 19:08:40 2019
 
 from flask import Flask, render_template
 from datetime import datetime
+from glob import glob
 
 import matplotlib.pyplot as plt
 import pandas as pd, numpy as np
 import openpyxl
 
-book = openpyxl.load_workbook("total경복궁.xlsx")
 
+file = glob("4rf_predict.py")
+for f in file:
+    exec(open(f, encoding='UTF-8').read())
+
+book = openpyxl.load_workbook("total경복궁.xlsx")
+sheet9 = book.get_sheet_by_name("2019경복궁")
 sheet8 = book.get_sheet_by_name("2018경복궁") # Matirx[7]
 sheet7 = book.get_sheet_by_name("2017경복궁") # Matrix[6]
 sheet6 = book.get_sheet_by_name("2016경복궁") # Matrix[5]
@@ -31,6 +37,7 @@ Matrix2015 = [[0]*31 for i in range(12)]
 Matrix2016 = [[0]*31 for i in range(12)]
 Matrix2017 = [[0]*31 for i in range(12)]
 Matrix2018 = [[0]*31 for i in range(12)]
+Matrix2019 = [[0]*31 for i in range(12)] 
 
 r = 2
 now = datetime.now()
@@ -139,6 +146,31 @@ for i in range(365):
     Matrix2018[month][j] = sheet8.cell(row=r,column=3).value
     r = r+1
     
+r = 2
+j = 0
+
+now = datetime.now()
+def f(x):
+    return { 1:0, 2:31, 43:59, 4:90, 5:120, 6:151, 7:181, 8:212, 9:243, 10:273, 
+            11:304, 12:334}[x]
+
+numday = f(now.month)
+if (now.year-2016)%4==0:
+    numday = numday +1
+
+numday = numday + now.day
+
+for i in range(numday-1):
+    month = sheet9.cell(row = r, column = 7).value - 1
+    month2 = sheet9.cell(row = r - 1, column = 7).value
+    if i!=0:
+        if month != month2 - 1:
+            j = 0
+        else:
+            j = j + 1
+    Matrix2019[month][j] = sheet9.cell(row = r, column = 15).value
+    r = r + 1
+    
 app = Flask(__name__)
 
 @app.route('/')
@@ -148,8 +180,17 @@ def home():
 @app.route('/preview')
 def preview():
 
-    return render_template('preview.html', test=Matrix, test2012 = Matrix2012, test2013 = Matrix2013, test2014 = Matrix2014, test2015 = Matrix2015, test2016 = Matrix2016, test2017 = Matrix2017, test2018 = Matrix2018)
+    return render_template('preview.html', test=Matrix, 
+                           test2012 = Matrix2012, test2013 = Matrix2013, 
+                           test2014 = Matrix2014, test2015 = Matrix2015, 
+                           test2016 = Matrix2016, test2017 = Matrix2017, 
+                           test2018 = Matrix2018, test2019 = Matrix2019)
 
 @app.route('/index.html')
 def home2():
     return render_template('index.html')
+"""
+@app.route('/select.html')
+def select():
+    return render_template('select.html')
+    """
