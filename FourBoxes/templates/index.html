@@ -8,7 +8,7 @@
 		<meta name="description" content="Four Boxes Slideshow: Recreating the background image slideshow seen on Atelier Serge Thoroval's website" />
 		<meta name="keywords" content="background slideshow, boxes, background image, four panels, css, tutorial" />
 		<meta name="author" content="Codrops" />
-		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="shortcut icon" href="../../noon2.ico">
 		<link href='http://fonts.googleapis.com/css?family=Raleway:200,400,600' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="../static/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="../static/css/demo.css" />
@@ -18,19 +18,18 @@
 	<body>
 		<div class="container">
 			<!-- Top Navigation -->
-			<div class="codrops-top clearfix">
+			<!-- <div class="codrops-top clearfix">
 				<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/InlineAnchorStyles/"><span>Previous Demo</span></a>
 				<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=19242"><span>Back to the Codrops Article</span></a></span>
-			</div>
+			</div> -->
 			<div id="boxgallery" class="boxgallery" data-effect="effect-1">
 				<div class="panel"><img src="../static/img/경복궁.jpeg" alt="Image 1"/>
 				<header class="codrops-header">
 				<h1>경복궁 </h1>
 				<nav class="codrops-demos">
-					<a href="predict.html">이번주 혼잡도 보러가기</a>
-					<a href="preview.html">신뢰도 확인하러가기</a>
-					<a href="index3.html">경복궁 정보 보러가기</a>
-					
+					<a href="predict_castle.html">이번주 혼잡도</a>
+					<a href="preview_castle.html">신뢰도 확인</a>
+					<a href="map_castle.html">경복궁&주변</a>					
 				</nav>
 			</header>
 				</div>
@@ -51,8 +50,6 @@
 		</div><!-- /container -->
 		<script src="../static/js/classie.js"></script>
 		<script src="../static/js/boxesFx.js"></script>
-		<script>
-			new BoxesFx( document.getElementById( 'boxgallery' ) );
-		</script>
+		<script>new BoxesFx( document.getElementById( 'boxgallery' ) );</script>
 	</body>
 </html>

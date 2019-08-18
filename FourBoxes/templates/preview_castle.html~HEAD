@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<title>Four Boxes Slideshow | Demo 1</title>
+		<title>Show Preview Data</title>
 		<meta name="description" content="Four Boxes Slideshow: Recreating the background image slideshow seen on Atelier Serge Thoroval's website" />
 		<meta name="keywords" content="background slideshow, boxes, background image, four panels, css, tutorial" />
 		<meta name="author" content="Codrops" />
@@ -14,7 +14,7 @@
 		<link rel="stylesheet" type="text/css" href="../static/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="../static/css/component.css" />
 		<link rel="stylesheet" type="text/css" href="../static/css/calendar.css" />
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
 		<script src="../static/js/modernizr.custom.js"></script>
 	</head>
 	<script>
@@ -23,52 +23,125 @@
 	<body>
 		<div class="container">
 			<!-- Top Navigation -->
-			<div class="navbar">
-				<a href="index.html">NOONCHIGAME</a>
-				<a href="preview_castle.html">과거 관람객</a>
-				<a href="predict_castle.html">이번주 관람객</a>
-				<a href="map_castle.html">경복궁&주변</a>
-				<div class="dropdown">
-    				<button class="dropbtn" onclick="myFunction()">경복궁 행사 
-      					<i class="fa fa-caret-down"></i>
-    				</button>
-    				<div class="dropdown-content" id="myDropdown">
-				      <a href="info_castle_1.html">수라간 시식 공감</a>
-				      <a href="info_castle_2.html">주●야간 전통공연</a>
-				      <a href="info_castle_3.html">수문장 교대의식</a>
-				    </div>
-				  </div>
-				
+			<div class="codrops-top clearfix">
+				<a class="codrops-icon codrops-icon-prev" href="index.html"><span>이전</span></a>
+				<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=19242"><span>Back to the Codrops Article</span></a></span>
 			</div>
-			<!-- <div class="codrops-top clearfix">
-				<a href="index.html"><span>noonchigame</span></a>
-				<span class="right">
-					<a class="codrops-icon codrops-icon-drop" href="predict_castle.html"><span>이번주 혼잡도</span></a>
-					<a class="codrops-icon codrops-icon-drop" href="info_castle.html"><span>경복궁 행사 정보</span></a>
-					<a class="codrops-icon codrops-icon-drop" href="map_castle.html"><span>경복궁&주변</span></a>
-				</span>
-			</div> -->
 			
 				<div class="panel"><img src="../static/img/경복궁.jpeg" alt="Image 1" style="opacity:0.1" width=100% height=100%/>
+				
 				<header class="codrops-header2">
+				
 			<div class="wrapper">
-  <main>
+			 <div style="display:block;">날짜로 검색 <input type="text" maxlength="6" 
+			 placeholder=" YYYYMM(ex.201908)" style="border-left:0px; border-right:0px; border-top:0px; border-bottom:1px solid #A8B2B9; color:#A8B2B9; background-color:rgba(0,0,0,0);">
+				<input type="button"></div>
     <div class="toolbar">
       <div class="toggle">
        <label onclick="prevMonth()"><h1><</h1></label>
       </div>
-         <div id="m"></div>
+         <div id="m">
+</div>
       <script>
+      /* function select(){
+    	  var popUrl = "select.html";
+    	  var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";
+    	  window.open(popUrl, "aa", popOption);
+      } */
       var today = new Date();
       var yy = today.getFullYear();
       var mm = today.getMonth()+1;
       yy = yy + "년";
       mm = mm + "월";
-      document.getElementById("m").innerHTML = "<font size=4>"+yy+"</font><br/><br/>";
+      document.getElementById("m").innerHTML = "<br/><font size=4>"+yy+"</font><br/><br/>";
+      
       document.getElementById("m").style.fontSize = '2em';
+      //document.getElementByClass("menu1").append(yy);
       document.getElementById("m").append(mm);
       </script>
-  
+      
+     	<!--   <a nocr href="#" class="sp_btn_arr cld_on">
+      <i class="fas fa-caret-down"></i>
+      	span class="blind">년/월 선택</span>
+      </a>
+      <div style="display:block; top:184px; left: 364px;"
+      class="ly_direct_select">
+      
+      <a nocr href="#" class="btn_clse_btn_close">
+      		<i class="fas fa-angle-down"></i>
+      	</a>
+      	<p class="tit_ds">직접 선택</p>
+      	<div class="sel_year">
+      		<ul>
+      			<li class yearvalue="2011">
+      				<a nocr="1" href="#">2011년</a>
+      			</li>
+      			<li class yearvalue="2012">
+      				<a nocr="1" href="#">2012년</a>
+      			</li>
+      			<li class yearvalue="2013">
+      				<a nocr="1" href="#">2013년</a>
+      			</li>
+      			<li class yearvalue="2014">
+      				<a nocr="1" href="#">2014년</a>
+      			<li class yearvalue="2015">
+      				<a nocr="1" href="#">2015년</a>
+      			</li>
+      			<li class yearvalue="2016">
+      				<a nocr="1" href="#">2016년</a>
+      			</li>
+      			<li class yearvalue="2017">
+      				<a nocr="1" href="#">2017년</a>
+      			</li>
+      			<li class yearvalue="2018">
+      				<a nocr="1" href="#">2018년</a>
+      			</li>
+      			<li class="selected" yearvalue="2019">
+      				<a nocr="1" href="#">2019년</a>
+      			</li>
+      			</ul>
+      		</div>
+      		<div class="sel_month">
+      			<ul>
+      				<li class monthvalue="1">
+      					<a nocr="1" href="#">1월</a>
+      				</li>
+      				<li class monthvalue="2">
+      					<a nocr="1" href="#">2월</a>
+      				</li>
+      				<li class monthvalue="3">
+      					<a nocr="1" href="#">3월</a>
+      				</li>
+      				<li class monthvalue="4">
+      					<a nocr="1" href="#">4월</a>
+      				</li>
+      				<li class monthvalue="5">
+      					<a nocr="1" href="#">5월</a>
+      				</li>
+      				<li class monthvalue="6">
+      					<a nocr="1" href="#">6월</a>
+      				</li>
+      				<li class monthvalue="7">
+      					<a nocr="1" href="#">7월</a>
+      				</li>
+      				<li class="selected" monthvalue="8">
+      					<a nocr="1" href="#">8월</a>
+      				</li>
+      				<li class monthvalue="9">
+      					<a nocr="1" href="#">9월</a>
+      				</li>
+      				<li class monthvalue="10">
+      					<a nocr="1" href="#">10월</a>
+      				</li>
+      				<li class monthvalue="11">
+      					<a nocr="1" href="#">11월</a>
+      				</li>
+      				<li class monthvalue="12">
+      					<a nocr="1" href="#">12월</a>
+      				</li>
+      			</ul>
+      		</div>
+      	</div> -->
       <div class="search-input">
       <label onclick="nextMonth()"><h1>></h1></label>
       
@@ -159,6 +232,7 @@
         }
         
         function update(dd, date, mo){
+        	//document.write(mm, "..." , today2.getMonth()+1);
         	for (i=dd;date<=mo;i++){
             	switch(yy){
             	case 2011:
@@ -189,10 +263,38 @@
             		var test2017 = {{test2017}};
             		document.getElementById(i).innerHTML = "<br/><br/>"+test2017[mm-1][i-dd]+"명";
             		break;
-            	case 2018: case 2019:
+            	case 2018:
             		var test2018 = {{test2018}};
             		document.getElementById(i).innerHTML = "<br/><br/>"+test2018[mm-1][i-dd]+"명";
             		break;
+            	case 2019:
+            		var test2019 = {{test2019}};
+            		if(mm>today2.getMonth()+1) {
+            			document.getElementById(i).innerHTML = "<br/><br/>";
+            			break;
+            		}
+            		/* 이부분이 8월에서 오늘날짜 이후로만 0명 지우는 코드인데 이걸 넣으면 자꾸 이전 달로 넘어가는게 이상해짐
+            		else if(mm=today2.getMonth()+1){
+            			document.getElementById(i).innerHTML = "<br/><br/>"+Math.round(test2019[mm-1][i-dd])+"명";
+            			break;
+            			//document.getElementById("mm: ",mm);
+            			/* if(date>=today2.getDate()){
+            				document.getElementById(i).innerHTML = "<br/><br/>";
+                			break;
+            			} 
+            			else {
+            				document.getElementById(i).innerHTML = "<br/><br/>"+Math.round(test2019[mm-1][i-dd])+"명";
+                			break;
+            			} 
+            			//document.write(date, "...", today2.getDate());
+            		} */
+            		else {
+            			document.getElementById(i).innerHTML = "<br/><br/>"+Math.round(test2019[mm-1][i-dd])+"명";
+            			break;
+            		}
+            		
+            		
+            		
             	default:
             		document.getElementById(i).innerHTML = "<br/><br/>";
             	}
@@ -205,16 +307,14 @@
             }
         }
         
-        today = new Date();
-        yy = today.getFullYear();
-      	mm = today.getMonth() + 1;
-      	
-        
-        
+        today2 = new Date();
+        yy = today2.getFullYear();
+      	mm = today2.getMonth() + 1;
+   
+    
         var mo = monthdate(yy, mm);
         today = new Date(yy, mm-1);
         var dd = today.getDay();
-
      
         	if (dd==0) dd=7;
             var date = 1;
@@ -223,7 +323,6 @@
             for (i=1;i<dd;i++){
             	document.getElementById(i).innerHTML = "";
             }
-
             update(dd, date, mo);	
  
    
@@ -233,12 +332,11 @@
         		mm=mm-12;
         		yy++;
         	}
-        	document.getElementById("m").innerHTML = "<font size=4>"+yy+"년</font><br/><br/>";
+        	document.getElementById("m").innerHTML = "<br/><font size=4>"+yy+"년</font><br/><br/>";
             document.getElementById("m").style.fontSize = '2em';
             document.getElementById("m").append(mm+"월");
         	today = new Date(yy, mm-1);
         	var mo = monthdate(yy, mm);
-
         var dd = today.getDay();
 	
         
@@ -260,21 +358,21 @@
         		mm=mm+12;
         		yy--;
         	}
-        	document.getElementById("m").innerHTML = "<font size=4>"+yy+"년</font><br/><br/>";
+        	document.getElementById("m").innerHTML = "<br/><font size=4>"+yy+"년</font><br/><br/>";
      
             document.getElementById("m").style.fontSize = '2em';
             document.getElementById("m").append(mm+"월");
+            
             var mo = monthdate(yy, mm);
         	today = new Date(yy, mm-1);
-
         var dd = today.getDay();
-
-        
+       // var today2 = new Date();
     	if (dd==0) dd=7;
         var date = 1;
         for (i=1;i<dd;i++){
         	document.getElementById(i).innerHTML = "";
         }
+        
         update(dd, date, mo);
         for (;i<=42;i++){
         	document.getElementById(i).innerHTML = "";
@@ -282,7 +380,7 @@
         }
         </script>
     </div>
-  </main>
+
  
 </div>
 			
@@ -298,19 +396,7 @@
 		<script>
 			new BoxesFx( document.getElementById( 'boxgallery' ) );
 		</script>
-		<script>
-			function myFunction(){
-				document.getElementById("myDropdown").classList.toggle("show")
-			}
-			window.onclick=function(e){
-				if(!e.target.matches('.dropbtn')){
-					var myDropdown=document.getElementById("myDropdown");
-						if(myDropdown.classList.contains('show')){
-							myDropdown.classList.remove('show');
-						}
-				}
-			}
-		</script>
+		
 		
 	</body>
 </html>
